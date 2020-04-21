@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3e25bc81-d736-4472-af9c-3400472c241d",
+		"_postman_id": "042bff52-3e0c-4d61-85d9-00ed9c1a144d",
 		"name": "persons",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -42,7 +42,7 @@
 			"response": []
 		},
 		{
-			"name": "upload picture",
+			"name": "add person",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -92,52 +92,6 @@
 						"api",
 						"Persons",
 						"AddPerson"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "addperson",
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {
-					"content-type": true
-				}
-			},
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Accept-Language",
-						"value": "ka-GE",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\"FirstName\":\"ზაზა\",\r\n\"LastName\":\"გიორგაძე\",\r\n\"Sex\":2,\r\n\"IdNumber\":\"01010018472\",\r\n\"BirthDate\":\"2005-04-18T08:43:20Z\",\r\n\"SettlementId\":1\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:44330/api/Persons/add",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "44330",
-					"path": [
-						"api",
-						"Persons",
-						"add"
 					]
 				}
 			},
@@ -224,6 +178,28 @@
 		},
 		{
 			"name": "report",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get person info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload picture",
 			"request": {
 				"method": "GET",
 				"header": [],
