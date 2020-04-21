@@ -39,10 +39,14 @@ namespace Core.Services
 
     
 
-        public async Task UpdatePerson(Person person)
+        public async Task<bool> UpdatePerson(Person person)
         {
-            await _uow.Repository<IPersonRepository, Person>().UpdateAsync(person);
-            await _uow.Commit();
+            var repo = _uow.Repository<IPersonRepository, Person>();
+            var entry = repo.GetByUniqueIdAsync(person.Id, true).Result;
+            if (entry==null)  return false;
+
+            await repo.UpdateAsync(person);
+            return true;
         }
 
         public async Task UpdatePicture(string filename,int id)

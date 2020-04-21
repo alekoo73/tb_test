@@ -91,7 +91,11 @@ namespace Web.Controllers
         public async Task<IActionResult> UpdatePersonAsync([FromBody]PersonModel model)
         {
             Person person = _mapper.Map<Person>(model);
-            await _personsService.UpdatePerson(person);
+            var callres = await _personsService.UpdatePerson(person);
+            if (!callres)
+            {
+                return NotFound();
+            }
             return Ok();
        
         }
@@ -146,9 +150,8 @@ namespace Web.Controllers
 
         [HttpPost]
         [Route("upload/{id:int}")]
-        public async Task<IActionResult> UploadPictureAsync([FromForm(Name = "file")] IFormFile file,int id)
-        {
-            
+        public async Task<IActionResult> UploadPictureAsync([FromForm]IFormFile file, int id)
+        {            
 
             string folderName = "Pictures";
             string webRootPath = _env.ContentRootPath;

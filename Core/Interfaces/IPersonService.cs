@@ -9,7 +9,7 @@ namespace Core.Interfaces
 {
     public interface IPersonService
     {
-        public Task UpdatePerson(Person person);
+        public Task<bool> UpdatePerson(Person person);
         public Task<bool> DeletePerson(int personid);
         public Task<bool> FindDuplicate(string idnumber);
         public Task<bool> FindDuplicate(string idnumber,int id);

@@ -21,7 +21,7 @@ namespace Core.Interfaces
 
         T GetByUniqueId(string id);
 
-        Task<T> GetByUniqueIdAsync(object id);
+        Task<T> GetByUniqueIdAsync(object id,bool detach=false);
 
         T Find(Expression<Func<T, bool>> match);
 

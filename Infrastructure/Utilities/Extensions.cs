@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Core.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text;
 
 namespace Infrastructure.Utilities
@@ -58,5 +60,7 @@ namespace Infrastructure.Utilities
                 return "";
             }
         }
+
+     
     }
 }

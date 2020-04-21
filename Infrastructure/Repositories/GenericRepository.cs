@@ -8,6 +8,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Linq.Dynamic.Core;
 using Core.Classes;
+using Infrastructure.Utilities;
 
 namespace Infrastructure.Repositories
 {
@@ -37,7 +38,7 @@ namespace Infrastructure.Repositories
             return await _context.Set<T>().OrderBy(queryParameters.OrderBy, queryParameters.IsDescending()).ToListAsync();
         }
 
-     
+
         public async Task<T> GetByIdAsync(int id)
         {
             return await _context.Set<T>().FindAsync(id);
@@ -48,9 +49,12 @@ namespace Infrastructure.Repositories
             return _context.Set<T>().Find(id);
         }
 
-        public async Task<T> GetByUniqueIdAsync(object id)
+        public async Task<T> GetByUniqueIdAsync(object id, bool detach)
         {
-            return await _context.Set<T>().FindAsync(id);
+            T entity = await _context.Set<T>().FindAsync(id);
+            if (detach)
+                _context.Entry<T>(entity).State = EntityState.Detached;
+            return entity;
         }
 
         public T Find(Expression<Func<T, bool>> match)
@@ -68,7 +72,7 @@ namespace Infrastructure.Repositories
             return _context.Set<T>().Where(match).ToList();
         }
 
-        public async Task<ICollection<T>> FindAllAsync(QueryParameters queryParameters,Expression<Func<T, bool>> match)
+        public async Task<ICollection<T>> FindAllAsync(QueryParameters queryParameters, Expression<Func<T, bool>> match)
         {
             return await _context.Set<T>().Where(match).OrderBy(queryParameters.OrderBy, queryParameters.IsDescending()).ToListAsync();
         }
@@ -112,6 +116,7 @@ namespace Infrastructure.Repositories
             {
                 return null;
             }
+
 
             _context.Set<T>().Attach(updated);
             _context.Entry(updated).State = EntityState.Modified;
