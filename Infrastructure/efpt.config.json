@@ -1,0 +1,38 @@
+﻿{
+   "ContextClassName": "Testapp2Context",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "DoNotCombineNamespace": false,
+   "IdReplace": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "Data",
+   "OutputPath": "Data",
+   "ProjectRootNamespace": "Infrastructure.Data",
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Persons]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Phones]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Relations]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Settlements]"
+      }
+   ],
+   "UseDatabaseNames": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseSpatial": false
+}
