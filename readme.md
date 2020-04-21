@@ -1,7 +1,13 @@
-Test app 2
+TBC Test app
 
-Script in items/script.sql file
+Solution:Testapp2
 
-Postman collection in items/persons.postman_collection.json
+Startup Project: Web
 
-Db files directory D:\test\
+Sql Script: items/script.sql
+
+Postman collection: items/persons.postman_collection.json
+
+Db files directory: D:\test\
+
+connection string :  appsettings.json
